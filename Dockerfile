@@ -1,10 +1,13 @@
 FROM eclipse-temurin:17-jdk-alpine
-VOLUME /tmp
-COPY target/*.jar app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
 
+# Create a writable directory instead of using VOLUME
+RUN mkdir -p /app/tmp && chmod -R 777 /app/tmp
 
-#FROM azul/zulu-openjdk:17-latest
-#VOLUME /tmp
-#COPY build/libs/*.jar app.jar
-#ENTRYPOINT ["java","-jar","/app.jar"]
+# Copy the JAR file into the container
+COPY target/*.jar /app/app.jar
+
+# Set the working directory
+WORKDIR /app
+
+# Run the application
+ENTRYPOINT ["java", "-jar", "/app/app.jar"]
