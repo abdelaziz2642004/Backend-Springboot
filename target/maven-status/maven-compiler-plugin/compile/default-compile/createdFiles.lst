@@ -1,0 +1,5 @@
+org/example/authenticationappbackend/Repository/StudentRepo.class
+org/example/authenticationappbackend/Services/StudentService.class
+org/example/authenticationappbackend/Controller/StudentController.class
+org/example/authenticationappbackend/Entity/Student.class
+org/example/authenticationappbackend/AuthenticationAppBackendApplication.class
